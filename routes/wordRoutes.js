@@ -8,7 +8,7 @@ const Words = require("../models/Words");
 async function getWords(req, res) {
   const page = req.body.page ?? 0;
   const offset = req.body.offset ?? 500;
-  const result = await WordSchema.find()
+  const result = await Words.find()
     .skip(page > 0 ? page * offset : 0)
     .limit(offset);
   res
